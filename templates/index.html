@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Finance Analyzer - Smart Personal Finance Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-brain"></i>
+                <span class="brand-text">AI Finance Analyzer</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">
+                            <i class="fas fa-star me-1"></i>Features
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ai">
+                            <i class="fas fa-robot me-1"></i>AI/ML
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">
+                            <i class="fas fa-play me-1"></i>Demo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">
+                            <i class="fas fa-tags me-1"></i>Pricing
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            <i class="fas fa-envelope me-1"></i>Contact
+                        </a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-outline-light" href="/dashboard">
+                            <i class="fas fa-rocket me-1"></i>Launch App
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            AI-Powered Personal Finance Management
+                        </h1>
+                        <p class="hero-subtitle">
+                            Leverage machine learning and artificial intelligence to analyze your spending patterns, 
+                            predict future expenses, and optimize your budget with intelligent recommendations.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="/dashboard" class="btn btn-primary btn-lg">
+                                <i class="fas fa-rocket me-2"></i>Get Started
+                            </a>
+                            <a href="#demo" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-play me-2"></i>Watch Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Smart Analytics</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-robot"></i>
+                            <span>AI Predictions</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Anomaly Detection</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Advanced Features</h2>
+                <p class="lead text-muted">Powered by cutting-edge AI and machine learning</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Smart Categorization</h4>
+                        <p>AI automatically categorizes your transactions using advanced machine learning algorithms.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Predictive Analytics</h4>
+                        <p>LSTM neural networks predict your future spending patterns with high accuracy.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h4>Anomaly Detection</h4>
+                        <p>Isolation Forest algorithm detects unusual spending behavior in real-time.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <h4>Budget Optimization</h4>
+                        <p>AI provides personalized budget recommendations based on your spending patterns.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4>Financial Health Score</h4>
+                        <p>Comprehensive assessment of your financial wellness with actionable insights.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Mobile Responsive</h4>
+                        <p>Beautiful, responsive design that works perfectly on all devices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI/ML Section -->
+    <section id="ai" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">AI & Machine Learning</h2>
+                <p class="lead text-muted">Advanced algorithms powering intelligent financial insights</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="ai-card">
+                        <h4><i class="fas fa-random text-primary me-2"></i>Random Forest Classifier</h4>
+                        <p>95%+ accuracy in transaction categorization using merchant patterns and spending behavior.</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-primary" style="width: 95%">95%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ai-card">
+                        <h4><i class="fas fa-network-wired text-success me-2"></i>LSTM Neural Network</h4>
+                        <p>Deep learning model for predicting future spending patterns with 30-day horizon.</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-success" style="width: 88%">88%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ai-card">
+                        <h4><i class="fas fa-tree text-warning me-2"></i>Isolation Forest</h4>
+                        <p>Unsupervised learning for detecting anomalous transactions and fraud patterns.</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-warning" style="width: 92%">92%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ai-card">
+                        <h4><i class="fas fa-cogs text-info me-2"></i>Reinforcement Learning</h4>
+                        <p>Dynamic budget optimization based on spending goals and financial constraints.</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-info" style="width: 85%">85%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Live Demo</h2>
+                <p class="lead text-muted">Experience the power of AI-driven financial analysis</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="demo-card">
+                        <div class="demo-header">
+                            <h4>Try the AI Finance Analyzer</h4>
+                            <p>Add a transaction and watch AI categorize it automatically</p>
+                        </div>
+                        <div class="demo-content">
+                            <form id="demoForm" class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Amount ($)</label>
+                                    <input type="number" class="form-control" id="demoAmount" step="0.01" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Merchant</label>
+                                    <input type="text" class="form-control" id="demoMerchant" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="demoDate" required>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="fas fa-magic me-2"></i>Analyze with AI
+                                    </button>
+                                </div>
+                            </form>
+                            <div id="demoResult" class="mt-4" style="display: none;">
+                                <div class="alert alert-success">
+                                    <h5><i class="fas fa-check-circle me-2"></i>AI Analysis Complete</h5>
+                                    <p id="demoResultText"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <h5>
+                            <i class="fas fa-brain"></i>
+                            <span>AI Finance Analyzer</span>
+                        </h5>
+                        <p>Revolutionizing personal finance management with cutting-edge AI and machine learning technology. Get intelligent insights, predictions, and recommendations for better financial decisions.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="#features"><i class="fas fa-chevron-right"></i>Features</a></li>
+                        <li><a href="#ai"><i class="fas fa-chevron-right"></i>AI/ML</a></li>
+                        <li><a href="#demo"><i class="fas fa-chevron-right"></i>Demo</a></li>
+                        <li><a href="/dashboard"><i class="fas fa-chevron-right"></i>Dashboard</a></li>
+                        <li><a href="/analytics"><i class="fas fa-chevron-right"></i>Analytics</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Features -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Features</h6>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i>Smart Categorization</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i>Predictive Analytics</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i>Anomaly Detection</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i>Budget Optimization</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i>Health Score</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h6>Contact Us</h6>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>info@aifinanceanalyzer.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Address</strong>
+                                <p>123 AI Street, Tech City, TC 12345</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Newsletter -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="newsletter-section">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <h6><i class="fas fa-envelope me-2"></i>Subscribe to Our Newsletter</h6>
+                                <p class="mb-0">Get the latest updates on AI finance features and tips.</p>
+                            </div>
+                            <div class="col-lg-6">
+                                <form class="newsletter-form">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Enter your email" required>
+                                        <button class="btn btn-primary" type="submit">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Footer -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="bottom-footer">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <p class="mb-0">
+                                    © 2024 AI Finance Analyzer. All rights reserved.
+                                </p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <div class="footer-bottom-links">
+                                    <a href="#">Privacy Policy</a>
+                                    <a href="#">Terms of Service</a>
+                                    <a href="#">Cookie Policy</a>
+                                    <a href="#">GDPR</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - AI Finance Analyzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="fas fa-brain me-2"></i>AI Finance Analyzer
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/"><i class="fas fa-home me-1"></i>Home</a>
+                <a class="nav-link" href="/dashboard"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a>
+                <a class="nav-link active" href="/analytics"><i class="fas fa-chart-bar me-1"></i>Analytics</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#overview">
+                                <i class="fas fa-chart-pie me-2"></i>Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#trends">
+                                <i class="fas fa-chart-line me-2"></i>Trends
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#patterns">
+                                <i class="fas fa-pattern me-2"></i>Patterns
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#anomalies">
+                                <i class="fas fa-exclamation-triangle me-2"></i>Anomalies
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#predictions">
+                                <i class="fas fa-crystal-ball me-2"></i>Predictions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Advanced Analytics</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="exportData()">
+                                <i class="fas fa-download me-1"></i>Export
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="refreshAnalytics()">
+                                <i class="fas fa-sync-alt me-1"></i>Refresh
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Overview -->
+                <div class="row mb-4">
+                    <div class="col-lg-8">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    <i class="fas fa-chart-line me-2"></i>Spending Trends Over Time
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="trendChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    <i class="fas fa-chart-pie me-2"></i>Category Distribution
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="pieChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Insights Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    <i class="fas fa-brain me-2"></i>AI-Powered Insights
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="insight-card">
+                                            <h5><i class="fas fa-lightbulb text-warning me-2"></i>Spending Patterns</h5>
+                                            <div id="spendingPatterns">
+                                                <div class="text-center">
+                                                    <div class="spinner-border text-primary" role="status"></div>
+                                                    <p class="mt-2">Analyzing patterns...</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="insight-card">
+                                            <h5><i class="fas fa-chart-bar text-info me-2"></i>Seasonal Trends</h5>
+                                            <div id="seasonalTrends">
+                                                <div class="text-center">
+                                                    <div class="spinner-border text-primary" role="status"></div>
+                                                    <p class="mt-2">Analyzing trends...</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anomaly Detection -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>Anomaly Detection
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div id="anomaliesContent">
+                                    <div class="text-center">
+                                        <div class="spinner-border text-primary" role="status"></div>
+                                        <p class="mt-2">Detecting anomalies...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Predictive Analytics -->
+                <div class="row mb-4">
+                    <div class="col-lg-6">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    <i class="fas fa-crystal-ball me-2"></i>Future Spending Prediction
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div id="predictionContent">
+                                    <div class="text-center">
+                                        <div class="spinner-border text-primary" role="status"></div>
+                                        <p class="mt-2">Generating predictions...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    <i class="fas fa-target me-2"></i>Budget Optimization
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div id="budgetOptimization">
+                                    <div class="text-center">
+                                        <div class="spinner-border text-primary" role="status"></div>
+                                        <p class="mt-2">Optimizing budget...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Analytics -->
+                <div class="row mb-4">
+                    <div class="col-lg-8">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    <i class="fas fa-table me-2"></i>Detailed Spending Analysis
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="analyticsTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Total Spent</th>
+                                                <th>% of Total</th>
+                                                <th>Avg Transaction</th>
+                                                <th>Trend</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="analyticsTableBody">
+                                            <tr>
+                                                <td colspan="5" class="text-center">Loading analytics...</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    <i class="fas fa-info-circle me-2"></i>Key Metrics
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div id="keyMetrics">
+                                    <div class="metric-item">
+                                        <h6>Total Transactions</h6>
+                                        <p id="totalTransactions">-</p>
+                                    </div>
+                                    <div class="metric-item">
+                                        <h6>Average Daily Spending</h6>
+                                        <p id="avgDailySpending">-</p>
+                                    </div>
+                                    <div class="metric-item">
+                                        <h6>Most Expensive Category</h6>
+                                        <p id="mostExpensiveCategory">-</p>
+                                    </div>
+                                    <div class="metric-item">
+                                        <h6>Spending Velocity</h6>
+                                        <p id="spendingVelocity">-</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
+</body>
+</html> 
