@@ -55,9 +55,9 @@ body {
     line-height: 1.6;
 }
 
-/* Navigation - Enhanced Professional Design */
+/* Enhanced Navigation - Consistent Design */
 .navbar {
-    background: var(--primary-gradient);
+    background: var(--bg-dark) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: var(--shadow-lg);
@@ -67,6 +67,7 @@ body {
     width: 100%;
     z-index: 1000;
     transition: var(--transition-normal);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar-brand {
@@ -77,6 +78,12 @@ body {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: var(--primary-color) !important;
+    transform: translateY(-1px);
 }
 
 .navbar-brand i {
@@ -85,6 +92,14 @@ body {
     padding: 0.5rem;
     border-radius: var(--radius-lg);
     backdrop-filter: blur(10px);
+    color: var(--primary-color);
+}
+
+.brand-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .navbar-nav .nav-link {
@@ -871,6 +886,51 @@ canvas {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 0.75rem 0;
+    }
+    
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    
+    .navbar-brand i {
+        font-size: 1.75rem;
+        padding: 0.4rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem !important;
+        text-align: center;
+        border-radius: var(--radius-lg);
+        margin: 0.25rem 0;
+    }
+    
+    .navbar-collapse {
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: var(--radius-lg);
+        margin-top: 1rem;
+        padding: 1rem;
+        backdrop-filter: blur(20px);
+    }
+    
+    .navbar-toggler {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 0.5rem;
+        border-radius: var(--radius-lg);
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .dropdown-menu {
+        background: rgba(0, 0, 0, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 0.5rem;
+    }
+    
     .sidebar {
         transform: translateX(-100%);
         width: 100%;
@@ -896,6 +956,27 @@ canvas {
     
     .performance-card {
         margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    
+    .navbar-brand i {
+        font-size: 1.5rem;
+        padding: 0.3rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.9rem;
+    }
+    
+    .navbar-collapse {
+        margin-top: 0.75rem;
+        padding: 0.75rem;
     }
 }
 

@@ -286,6 +286,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTooltips();
     addFormValidation();
     initializeNewsletterForm();
+    initializeDemoTabs();
+    initializeDemoForm();
+    initializeHeroStats();
     
     // Add parallax effect on larger screens
     if (window.innerWidth > 768) {
@@ -306,7 +309,50 @@ document.addEventListener('DOMContentLoaded', function() {
     if (counterSection) {
         counterObserver.observe(counterSection);
     }
+    
+    // Animate hero stats
+    const heroStats = document.querySelector('.hero-stats');
+    if (heroStats) {
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateHeroStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        statsObserver.observe(heroStats);
+    }
 });
+
+// Initialize hero stats animation
+function initializeHeroStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    statNumbers.forEach(stat => {
+        stat.textContent = '0';
+    });
+}
+
+// Animate hero stats
+function animateHeroStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            stat.textContent = Math.floor(current);
+        }, 16);
+    });
+}
 
 // Initialize newsletter form
 function initializeNewsletterForm() {
@@ -325,6 +371,174 @@ function initializeNewsletterForm() {
             }
         });
     }
+}
+
+// Initialize demo tabs
+function initializeDemoTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const targetTab = this.getAttribute('data-tab');
+            
+            // Remove active class from all tabs and contents
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            this.classList.add('active');
+            document.getElementById(targetTab + '-tab').classList.add('active');
+        });
+    });
+}
+
+// Initialize demo form
+function initializeDemoForm() {
+    const demoForm = document.getElementById('demoForm');
+    if (demoForm) {
+        demoForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const analyzeBtn = this.querySelector('.analyze-btn');
+            const loader = analyzeBtn.querySelector('.btn-loader');
+            const btnText = analyzeBtn.querySelector('i').parentElement;
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            loader.style.display = 'block';
+            
+            // Simulate AI analysis
+            setTimeout(() => {
+                showDemoResults();
+                btnText.style.display = 'inline';
+                loader.style.display = 'none';
+            }, 2000);
+        });
+    }
+}
+
+// Show demo results
+function showDemoResults() {
+    const results = document.getElementById('demoResults');
+    const amount = document.getElementById('demoAmount').value;
+    const category = document.getElementById('demoCategory').value;
+    const description = document.getElementById('demoDescription').value;
+    
+    // Populate results
+    document.getElementById('resultCategory').textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    document.getElementById('resultTrend').textContent = amount > 100 ? 'High Spending' : 'Normal Spending';
+    document.getElementById('resultRecommendation').textContent = getRecommendation(amount, category);
+    document.getElementById('resultRisk').textContent = amount > 200 ? 'Medium Risk' : 'Low Risk';
+    
+    // Show results with animation
+    results.style.display = 'block';
+    results.style.opacity = '0';
+    results.style.transform = 'translateY(20px)';
+    
+    setTimeout(() => {
+        results.style.transition = 'all 0.5s ease';
+        results.style.opacity = '1';
+        results.style.transform = 'translateY(0)';
+    }, 100);
+}
+
+// Get AI recommendation
+function getRecommendation(amount, category) {
+    const recommendations = {
+        food: amount > 50 ? 'Consider meal prep to reduce dining costs' : 'Good spending control',
+        transport: amount > 100 ? 'Look into carpooling or public transport' : 'Efficient transportation',
+        entertainment: amount > 80 ? 'Set entertainment budget limits' : 'Balanced entertainment spending',
+        shopping: amount > 150 ? 'Review if purchase is necessary' : 'Reasonable shopping',
+        utilities: amount > 200 ? 'Check for energy-saving opportunities' : 'Normal utility costs',
+        health: amount > 100 ? 'Consider health insurance options' : 'Good health investment',
+        education: amount > 300 ? 'Look for educational discounts' : 'Worthwhile investment'
+    };
+    
+    return recommendations[category] || 'Monitor your spending patterns';
+}
+
+// Run prediction demo
+function runPrediction() {
+    const income = document.getElementById('predIncome').value;
+    const savings = document.getElementById('predSavings').value;
+    const age = document.getElementById('predAge').value;
+    
+    if (!income || !savings || !age) {
+        alert('Please fill in all fields');
+        return;
+    }
+    
+    const results = document.getElementById('predictionResults');
+    const monthlySpending = income * 0.6;
+    const futureSavings = savings * 1.05;
+    
+    results.innerHTML = `
+        <div class="prediction-results-content">
+            <h3>AI Spending Predictions</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="prediction-card">
+                        <h4>Monthly Spending</h4>
+                        <p class="prediction-value">$${monthlySpending.toFixed(0)}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prediction-card">
+                        <h4>Future Savings</h4>
+                        <p class="prediction-value">$${futureSavings.toFixed(0)}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="prediction-card">
+                        <h4>Financial Health</h4>
+                        <p class="prediction-value">${getFinancialHealth(income, savings, age)}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    results.style.display = 'block';
+}
+
+// Get financial health score
+function getFinancialHealth(income, savings, age) {
+    const ratio = savings / income;
+    if (ratio > 2) return 'Excellent';
+    if (ratio > 1) return 'Good';
+    if (ratio > 0.5) return 'Fair';
+    return 'Needs Improvement';
+}
+
+// Simulate anomaly detection
+function simulateAnomaly() {
+    const anomalyExamples = document.querySelector('.anomaly-examples');
+    
+    const newAnomaly = document.createElement('div');
+    newAnomaly.className = 'anomaly-item';
+    newAnomaly.innerHTML = `
+        <div class="anomaly-icon">
+            <i class="fas fa-exclamation-triangle text-danger"></i>
+        </div>
+        <div class="anomaly-content">
+            <h4>New Anomaly Detected</h4>
+            <p>Unusual spending pattern detected in your recent transactions</p>
+            <span class="anomaly-score">Risk Score: ${Math.floor(Math.random() * 30) + 70}%</span>
+        </div>
+    `;
+    
+    anomalyExamples.appendChild(newAnomaly);
+    
+    // Animate the new anomaly
+    newAnomaly.style.opacity = '0';
+    newAnomaly.style.transform = 'translateX(-20px)';
+    
+    setTimeout(() => {
+        newAnomaly.style.transition = 'all 0.5s ease';
+        newAnomaly.style.opacity = '1';
+        newAnomaly.style.transform = 'translateX(0)';
+    }, 100);
 }
 
 // Show newsletter success message

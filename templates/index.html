@@ -59,42 +59,87 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Enhanced Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6">
                     <div class="hero-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-star"></i>
+                            <span>AI-Powered Financial Intelligence</span>
+                        </div>
                         <h1 class="hero-title">
-                            AI-Powered Personal Finance Management
+                            Transform Your <span class="text-gradient">Financial Future</span>
                         </h1>
                         <p class="hero-subtitle">
-                            Leverage machine learning and artificial intelligence to analyze your spending patterns, 
-                            predict future expenses, and optimize your budget with intelligent recommendations.
+                            Experience the next generation of personal finance management with cutting-edge AI and machine learning. 
+                            Get intelligent insights, predictive analytics, and personalized recommendations that actually work.
                         </p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number" data-target="95">0</div>
+                                <div class="stat-label">Accuracy Rate</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-target="1000">0</div>
+                                <div class="stat-label">+ Users</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-target="24">0</div>
+                                <div class="stat-label">/7 Support</div>
+                            </div>
+                        </div>
                         <div class="hero-buttons">
-                            <a href="/dashboard" class="btn btn-primary btn-lg">
-                                <i class="fas fa-rocket me-2"></i>Get Started
+                            <a href="/dashboard" class="btn btn-primary btn-lg pulse-btn">
+                                <i class="fas fa-rocket me-2"></i>Launch Dashboard
                             </a>
-                            <a href="#demo" class="btn btn-outline-light btn-lg">
+                            <a href="#demo" class="btn btn-outline-light btn-lg me-3">
                                 <i class="fas fa-play me-2"></i>Watch Demo
+                            </a>
+                            <a href="#features" class="btn btn-ghost btn-lg">
+                                <i class="fas fa-arrow-down me-2"></i>Learn More
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="hero-image">
-                        <div class="floating-card card-1">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Smart Analytics</span>
+                        <div class="floating-card premium card-1">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Smart Analytics</h4>
+                                <p>Real-time insights</p>
+                            </div>
                         </div>
-                        <div class="floating-card card-2">
-                            <i class="fas fa-robot"></i>
-                            <span>AI Predictions</span>
+                        <div class="floating-card premium card-2">
+                            <div class="card-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>AI Predictions</h4>
+                                <p>Future forecasting</p>
+                            </div>
                         </div>
-                        <div class="floating-card card-3">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Anomaly Detection</span>
+                        <div class="floating-card premium card-3">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Anomaly Detection</h4>
+                                <p>Smart alerts</p>
+                            </div>
+                        </div>
+                        <div class="floating-card premium card-4">
+                            <div class="card-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>ML Powered</h4>
+                                <p>Advanced algorithms</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -216,44 +261,204 @@
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section id="demo" class="py-5">
+    <!-- Enhanced Interactive Demo Section -->
+    <section id="demo" class="demo-section py-5">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Live Demo</h2>
-                <p class="lead text-muted">Experience the power of AI-driven financial analysis</p>
-            </div>
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="demo-card">
-                        <div class="demo-header">
-                            <h4>Try the AI Finance Analyzer</h4>
-                            <p>Add a transaction and watch AI categorize it automatically</p>
+                <div class="col-lg-10 mx-auto text-center">
+                    <div class="section-header">
+                        <h2 class="section-title">Experience AI-Powered Analysis</h2>
+                        <p class="section-subtitle">Try our interactive demo and see how AI transforms your financial data into actionable insights</p>
+                    </div>
+                    
+                    <div class="demo-container">
+                        <div class="demo-tabs">
+                            <button class="tab-btn active" data-tab="transaction">
+                                <i class="fas fa-credit-card"></i>
+                                Transaction Analysis
+                            </button>
+                            <button class="tab-btn" data-tab="prediction">
+                                <i class="fas fa-crystal-ball"></i>
+                                Spending Prediction
+                            </button>
+                            <button class="tab-btn" data-tab="anomaly">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Anomaly Detection
+                            </button>
                         </div>
-                        <div class="demo-content">
-                            <form id="demoForm" class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label">Amount ($)</label>
-                                    <input type="number" class="form-control" id="demoAmount" step="0.01" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Merchant</label>
-                                    <input type="text" class="form-control" id="demoMerchant" required>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">Date</label>
-                                    <input type="date" class="form-control" id="demoDate" required>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary w-100">
+                        
+                        <!-- Transaction Analysis Tab -->
+                        <div class="tab-content active" id="transaction-tab">
+                            <div class="demo-card">
+                                <form id="demoForm" class="demo-form">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="demoAmount">
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                    Transaction Amount
+                                                </label>
+                                                <input type="number" id="demoAmount" class="form-control" placeholder="Enter amount" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="demoCategory">
+                                                    <i class="fas fa-tag"></i>
+                                                    Category
+                                                </label>
+                                                <select id="demoCategory" class="form-control" required>
+                                                    <option value="">Select category</option>
+                                                    <option value="food">Food & Dining</option>
+                                                    <option value="transport">Transportation</option>
+                                                    <option value="entertainment">Entertainment</option>
+                                                    <option value="shopping">Shopping</option>
+                                                    <option value="utilities">Utilities</option>
+                                                    <option value="health">Healthcare</option>
+                                                    <option value="education">Education</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="demoDescription">
+                                                    <i class="fas fa-align-left"></i>
+                                                    Description
+                                                </label>
+                                                <input type="text" id="demoDescription" class="form-control" placeholder="Transaction description" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="demoDate">
+                                                    <i class="fas fa-calendar"></i>
+                                                    Date
+                                                </label>
+                                                <input type="date" id="demoDate" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-lg mt-4 analyze-btn">
                                         <i class="fas fa-magic me-2"></i>Analyze with AI
+                                        <div class="btn-loader" style="display: none;">
+                                            <div class="spinner"></div>
+                                        </div>
+                                    </button>
+                                </form>
+                                
+                                <div id="demoResults" class="demo-results" style="display: none;">
+                                    <div class="results-header">
+                                        <h3><i class="fas fa-chart-bar"></i> AI Analysis Results</h3>
+                                        <p>Powered by Machine Learning</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="result-card">
+                                                <div class="result-icon">
+                                                    <i class="fas fa-tag"></i>
+                                                </div>
+                                                <h4>Smart Category</h4>
+                                                <p id="resultCategory" class="result-value"></p>
+                                                <div class="confidence-bar">
+                                                    <div class="confidence-fill" style="width: 95%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="result-card">
+                                                <div class="result-icon">
+                                                    <i class="fas fa-chart-line"></i>
+                                                </div>
+                                                <h4>Spending Trend</h4>
+                                                <p id="resultTrend" class="result-value"></p>
+                                                <div class="trend-indicator">
+                                                    <i class="fas fa-arrow-up text-success"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="result-card">
+                                                <div class="result-icon">
+                                                    <i class="fas fa-lightbulb"></i>
+                                                </div>
+                                                <h4>AI Recommendation</h4>
+                                                <p id="resultRecommendation" class="result-value"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="result-card">
+                                                <div class="result-icon">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                </div>
+                                                <h4>Risk Level</h4>
+                                                <p id="resultRisk" class="result-value"></p>
+                                                <div class="risk-indicator low"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Spending Prediction Tab -->
+                        <div class="tab-content" id="prediction-tab">
+                            <div class="demo-card">
+                                <div class="prediction-form">
+                                    <h3>Predict Your Future Spending</h3>
+                                    <p>Enter your current spending patterns to get AI-powered predictions</p>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="prediction-input">
+                                                <label>Monthly Income</label>
+                                                <input type="number" id="predIncome" placeholder="$5000">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="prediction-input">
+                                                <label>Current Savings</label>
+                                                <input type="number" id="predSavings" placeholder="$10000">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="prediction-input">
+                                                <label>Age</label>
+                                                <input type="number" id="predAge" placeholder="25">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary btn-lg mt-4" onclick="runPrediction()">
+                                        <i class="fas fa-crystal-ball me-2"></i>Get Predictions
                                     </button>
                                 </div>
-                            </form>
-                            <div id="demoResult" class="mt-4" style="display: none;">
-                                <div class="alert alert-success">
-                                    <h5><i class="fas fa-check-circle me-2"></i>AI Analysis Complete</h5>
-                                    <p id="demoResultText"></p>
+                                <div id="predictionResults" class="prediction-results" style="display: none;">
+                                    <!-- Prediction results will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Anomaly Detection Tab -->
+                        <div class="tab-content" id="anomaly-tab">
+                            <div class="demo-card">
+                                <div class="anomaly-demo">
+                                    <h3>Detect Unusual Spending Patterns</h3>
+                                    <p>Our AI identifies transactions that deviate from your normal spending behavior</p>
+                                    <div class="anomaly-examples">
+                                        <div class="anomaly-item">
+                                            <div class="anomaly-icon">
+                                                <i class="fas fa-exclamation-triangle text-warning"></i>
+                                            </div>
+                                            <div class="anomaly-content">
+                                                <h4>Unusual Transaction Detected</h4>
+                                                <p>Large purchase detected outside normal spending pattern</p>
+                                                <span class="anomaly-score">Risk Score: 85%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-warning btn-lg mt-4" onclick="simulateAnomaly()">
+                                        <i class="fas fa-search me-2"></i>Scan for Anomalies
+                                    </button>
                                 </div>
                             </div>
                         </div>

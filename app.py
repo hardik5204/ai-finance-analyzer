@@ -509,7 +509,7 @@ def initialize_database():
 initialize_database()
 
 if __name__ == '__main__':
-    # Use PORT environment variable for deployment, default to 8000 for local
+    # Use PORT environment variable for deployment, default to 8001 for local
     import os
-    port = int(os.environ.get('PORT', 8000))
+    port = int(os.environ.get('PORT', 8001))
     app.run(debug=False, host='0.0.0.0', port=port) 

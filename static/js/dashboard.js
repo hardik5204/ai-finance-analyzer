@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set up auto-refresh
     setInterval(loadDashboardData, 30000); // Refresh every 30 seconds
+    
+    // Initialize mobile menu
+    initializeMobileMenu();
 });
 
 // Initialize dashboard components
@@ -612,4 +615,31 @@ function exportData() {
     
     URL.revokeObjectURL(url);
     showNotification('Data exported successfully!', 'success');
+}
+
+// Initialize mobile menu functionality
+function initializeMobileMenu() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', function() {
+            navbarCollapse.classList.toggle('show');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navbarToggler.contains(e.target) && !navbarCollapse.contains(e.target)) {
+                navbarCollapse.classList.remove('show');
+            }
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navbarCollapse.classList.remove('show');
+            });
+        });
+    }
 } 
