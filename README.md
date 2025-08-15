@@ -67,7 +67,7 @@ ai-finance-analyzer/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ai-finance-analyzer.git
+   git clone https://github.com/hardik5204/ai-finance-analyzer.git
    cd ai-finance-analyzer
    ```
 
@@ -174,4 +174,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ using Python, Flask, and Machine Learning**
 
-*Perfect for showcasing advanced AI/ML skills in your portfolio!* 
+*Perfect for showcasing advanced AI/ML skills in your portfolio!*
+
+## 📱 Live Demo & Repository
+- **GitHub Repository**: [https://github.com/hardik5204/ai-finance-analyzer](https://github.com/hardik5204/ai-finance-analyzer)
+- **Live Demo**: [Will be updated after deployment] 
