@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ai-finance-analyzer
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_DEBUG
+        value: False
+      - key: PORT
+        value: 8000 
