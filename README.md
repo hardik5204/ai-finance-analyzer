@@ -209,4 +209,4 @@ git push origin main
 - **Backend API**: [Deploy to Render.com for full functionality]
 - **Deployment Guides**: 
   - [GitHub Pages Guide](GITHUB_PAGES_DEPLOYMENT.md) - Public static site
-  - [General Deployment Guide](DEPLOYMENT.md) - Backend API deployment 
+  - [General Deployment Guide](DEPLOYMENT.md) - Backend API deployment # Trigger GitHub Pages deployment
