@@ -176,6 +176,37 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 *Perfect for showcasing advanced AI/ML skills in your portfolio!*
 
+## 🚀 Quick Deployment
+
+### 🌐 **GitHub Pages (Recommended - Public URL, No Sign-in)**
+```bash
+# Push your code to GitHub
+git add .
+git commit -m "Add GitHub Pages static site"
+git push origin main
+
+# Enable GitHub Pages in repository settings
+# Your public URL: https://yourusername.github.io/your-repo-name/
+```
+**✅ Perfect for portfolios - anyone can access without sign-in!**
+
+### 🔧 **Backend API Deployment**
+1. **Push to GitHub**: `git push origin main`
+2. **Deploy to Render.com** (Free):
+   - Go to [Render.com](https://render.com)
+   - Connect your GitHub repository
+   - Create Web Service with Python environment
+   - Your API will be live at `https://your-app-name.onrender.com`
+
+### 📱 **Alternative Platforms**
+- **Railway.app**: [Railway.app](https://railway.app) - Fast deployments
+- **Heroku**: [Heroku.com](https://heroku.com) - Classic choice
+- **Automated Script**: Run `./deploy.sh` for guided deployment
+
 ## 📱 Live Demo & Repository
 - **GitHub Repository**: [https://github.com/hardik5204/ai-finance-analyzer](https://github.com/hardik5204/ai-finance-analyzer)
-- **Live Demo**: [Will be updated after deployment] 
+- **Public Demo**: [Deploy to GitHub Pages for public URL without sign-in]
+- **Backend API**: [Deploy to Render.com for full functionality]
+- **Deployment Guides**: 
+  - [GitHub Pages Guide](GITHUB_PAGES_DEPLOYMENT.md) - Public static site
+  - [General Deployment Guide](DEPLOYMENT.md) - Backend API deployment 
